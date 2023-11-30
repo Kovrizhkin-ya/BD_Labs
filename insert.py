@@ -20,11 +20,11 @@ def insert_rows(data, n, transaction, col, s):
         insert_rows(data, n, transaction, col, s)
 
 def insert_data():
-    transaction = 1
+    transaction = 500
     for file_name in os.listdir('files'):
         print(f"Inserting rows from {file_name} to db:")
         start = time.perf_counter()
-        data = pd.read_csv(os.path.join('files', file_name), encoding='cp1251', sep=';', decimal=',', low_memory=False, nrows=10)
+        data = pd.read_csv(os.path.join('files', file_name), encoding='cp1251', sep=';', decimal=',', low_memory=False, nrows=10000)
         data["zno_year"] = file_name[5:9]
         data = data.replace([np.nan], [None])
         data.columns = data.columns.str.lower()
