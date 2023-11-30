@@ -1,19 +1,21 @@
 from connect import get_conn
 
-def create_table():
+def table(filepath, envpath, message):
      try:
-          conn = get_conn()
+          conn = get_conn(envpath)
           cur = conn.cursor()
-
-          with open("sql/CREATE_TABLE.sql", "r") as sql_file:
+          with open(filepath, "r") as sql_file:
                sql_code = sql_file.read()
                cur.execute(sql_code)
+
 
           conn.commit()
           cur.close()
           conn.close()
-          print("Table 'zno' created\n")
-     except:
-          create_table()
+          print(message)
+     except Exception as e:
+          print(e)
+          #table(filepath, envpath, message)
+
 
 
