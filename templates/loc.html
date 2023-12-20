@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table: loc</title>
+</head>
+<body>
+
+    <h1>Table: loc</h1>
+
+    <p>Go to other tables:
+        <a href="{{ url_for('show_table', table_name='loc') }}">loc</a>,
+        <a href="{{ url_for('show_table', table_name='participants') }}">participants</a>,
+        <a href="{{ url_for('show_table', table_name='test') }}">test</a>,
+        <a href="{{ url_for('show_table', table_name='educate_organisation') }}">educate_organisation</a>
+        <a href="{{ url_for('index') }}">index</a>
+    </p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>locid</th>
+                <th>locname</th>
+                <th>locregname</th>
+                <th>locareaname</th>
+                <th>loctername</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, row in data.iterrows() %}
+            <tr>
+                <td>{{ row['locid'] }}</td>
+                <td>{{ row['locname'] }}</td>
+                <td>{{ row['locregname'] }}</td>
+                <td>{{ row['locareaname'] }}</td>
+                <td>{{ row['loctername'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
