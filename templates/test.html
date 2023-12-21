@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table: test</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
 </head>
 <body>
 
-    <h1>Table: test</h1>
-
-    <p>Go to other tables:
-        <a href="{{ url_for('show_table', table_name='loc') }}">loc</a>,
-        <a href="{{ url_for('show_table', table_name='participants') }}">participants</a>,
-        <a href="{{ url_for('show_table', table_name='test') }}">test</a>,
-        <a href="{{ url_for('show_table', table_name='educate_organisation') }}">educate_organisation</a>
-        <a href="{{ url_for('index') }}">index</a>
+<header>
+    <p class="header-menu">
+        <a class="header-link" href="{{ url_for('show_table', table_name='loc') }}">loc</a>
+        <a class="header-link" href="{{ url_for('show_table', table_name='participants') }}">participants</a>
+        <a class="header-link" href="{{ url_for('show_table', table_name='test') }}">test</a>
+        <a class="header-link" href="{{ url_for('show_table', table_name='educate_organisation') }}">educate_organisation</a>
+        <a class="header-link" href="{{ url_for('index') }}">index</a>
     </p>
+</header>
+
+
+    <h1>Table: test</h1>
 
     <table border="1">
         <thead>
@@ -50,9 +53,9 @@
                 <td>{{ row['dpalevel'] }}</td>
                 <td>{{ row['locid'] }}</td>
                 <td>
-                    <form action="{{ url_for('delete_row', testid=row[0]) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this row?');">
+                    <form  action="{{ url_for('delete_row', testid=row[0]) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this row?');">
                     <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit">Delete</button>
+                    <button id="delete-button" type="submit">Delete</button>
                     </form>
                 </td>
             </tr>

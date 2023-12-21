@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table: loc</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
 </head>
 <body>
 
-    <h1>Table: loc</h1>
 
-    <p>Go to other tables:
-        <a href="{{ url_for('show_table', table_name='loc') }}">loc</a>,
-        <a href="{{ url_for('show_table', table_name='participants') }}">participants</a>,
-        <a href="{{ url_for('show_table', table_name='test') }}">test</a>,
-        <a href="{{ url_for('show_table', table_name='educate_organisation') }}">educate_organisation</a>
-        <a href="{{ url_for('index') }}">index</a>
+<header>
+    <p class="header-menu">
+        <a class="header-link" href="{{ url_for('show_table', table_name='loc') }}">loc</a>
+        <a class="header-link" href="{{ url_for('show_table', table_name='participants') }}">participants</a>
+        <a class="header-link" href="{{ url_for('show_table', table_name='test') }}">test</a>
+        <a class="header-link" href="{{ url_for('show_table', table_name='educate_organisation') }}">educate_organisation</a>
+        <a class="header-link" href="{{ url_for('index') }}">index</a>
     </p>
+</header>
+
+    <h1>Table: loc</h1>
 
     <table border="1">
         <thead>
